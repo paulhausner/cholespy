@@ -203,7 +203,9 @@ void CholeskySolver<Float>::factorize(int *col_ptr, int *rows, double *data) {
 
     cholmod_start(&m_common);
 
-    m_common.supernodal = CHOLMOD_SIMPLICIAL;
+    // comment out simplical 
+    // m_common.supernodal = CHOLMOD_SIMPLICIAL;
+    
     m_common.final_ll = 1; // compute LL' factorization instead of LDL´ (default for simplicial)
     m_common.nmethods = 1;
     m_common.method[0].ordering = CHOLMOD_NESDIS;
